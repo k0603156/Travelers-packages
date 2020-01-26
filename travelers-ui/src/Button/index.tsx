@@ -1,6 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
+interface ButtonTheme {
+  theme?: "primary" | "secondary" | "tertiary";
+}
+
+interface ButtonProps extends ButtonTheme {
+  children: React.ReactNode;
+  onClick?: (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => void | undefined;
+}
+
 const Button = styled.div<ButtonTheme>`
   outline: none;
   border: none;
