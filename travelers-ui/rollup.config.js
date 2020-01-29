@@ -23,8 +23,7 @@ export default {
     babel({
       extensions,
       include: ["src/**/*"],
-      runtimeHelpers: true,
-      presets: [["react-app", { flow: false, typescript: true }]]
+      runtimeHelpers: true
     }),
     url(),
     svgr()

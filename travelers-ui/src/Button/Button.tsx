@@ -3,15 +3,16 @@ import styled from "styled-components";
 import Mix from "../_mix";
 
 interface Theme {
+  /**버튼의 기본 스타일 */
   condition: "primary" | "secondary" | "tertiary";
   size: "small" | "medium" | "large";
+  width?: string | number;
+  disabled?: boolean;
 }
 
 interface ButtonProps extends Theme {
   children: React.ReactNode;
-  onClick?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => void | undefined;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const condition = {
@@ -20,18 +21,27 @@ const condition = {
   color: white;
   &:hover { background: #38d9a9; }
   &:active { background: #12b886; }
+  &:disabled {
+    background: #aed9cc;
+  }
   `,
   secondary: `
   background: #e9ecef;
   color: #343a40;
   &:hover { background: #f1f3f5; }
   &:active { background: #dee2e6; }
+  &:disabled {
+    color: #c6d3e1;
+  }
   `,
   tertiary: `
   background: none;
   color: #20c997;
   &:hover { background: #e6fcf5; }
   &:active { background: #c3fae8; }
+  &:disabled {
+    color: #bcd9d0;
+  }
   `
 };
 const size = {
@@ -57,24 +67,47 @@ const size = {
   font-weight: 800;
   `
 };
-const Button = styled.button<ButtonProps>`
-  ${Mix.base_tyle}
-  user-select: none;
 
-  ${(props: Theme) => condition[props.condition]}
-  ${(props: Theme) => size[props.size]}
+const CButton = styled.button<ButtonProps>`
+  ${Mix.base_tyle};
+  user-select: none;
+  width: ${(props: Theme) => props.width};
+  ${(props: Theme) => condition[props.condition]};
+  ${(props: Theme) => size[props.size]};
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
-const button = ({ children, onClick, condition, size }: ButtonProps) => {
+/**
+ * 기본적인 버튼 스타일👍
+ *
+ * - 설명
+ */
+const Button = ({
+  children,
+  onClick,
+  condition,
+  size,
+  width,
+  disabled
+}: ButtonProps) => {
   return (
-    <Button onClick={onClick} condition={condition} size={size}>
+    <CButton
+      onClick={onClick}
+      condition={condition}
+      size={size}
+      width={width}
+      disabled={disabled}
+    >
       {children}
-    </Button>
+    </CButton>
   );
 };
 
-button.defaultProps = {
+Button.defaultProps = {
   condition: "primary",
-  size: "midium"
+  size: "medium"
 };
 
-export default button;
+export default Button;

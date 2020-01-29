@@ -1514,6 +1514,23 @@
     qs "^6.6.0"
     ts-dedent "^1.1.0"
 
+"@storybook/addon-viewport@^5.3.9":
+  version "5.3.9"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-5.3.9.tgz#197e924b0166bc233a1b14344886ee0c4f1ede5d"
+  integrity sha512-ywiifw0Sx45LyDPEAmzQP3xFAsqiIdTAHdDr+HxjpGMGVmIBtGNNzWxPD5sdrI9yCRP55s46zyctb3Q7qnC5Eg==
+  dependencies:
+    "@storybook/addons" "5.3.9"
+    "@storybook/api" "5.3.9"
+    "@storybook/client-logger" "5.3.9"
+    "@storybook/components" "5.3.9"
+    "@storybook/core-events" "5.3.9"
+    "@storybook/theming" "5.3.9"
+    core-js "^3.0.1"
+    global "^4.3.2"
+    memoizerific "^1.11.3"
+    prop-types "^15.7.2"
+    util-deprecate "^1.0.2"
+
 "@storybook/addons@5.3.9", "@storybook/addons@^5.3.9":
   version "5.3.9"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-5.3.9.tgz#f2492de356e0cd38e3da357f4dafa058a4756e36"
@@ -8825,7 +8842,7 @@ react-inspector@^4.0.0:
     prop-types "^15.6.1"
     storybook-chromatic "^2.2.2"
 
-react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.3:
+react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.3:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
