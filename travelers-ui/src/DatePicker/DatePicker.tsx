@@ -209,9 +209,9 @@ const DatePicker = (props: DatePickerProps) => {
       date={props.date}
     >
       <MonthAndYearBox>
-        <button onClick={gotoPreviousMonth}>left</button>
+        <button onClick={gotoPreviousMonth}>{"<"}</button>
         <span className="title">{renderMonthAndYear()}</span>
-        <button onClick={gotoNextMonth}>right</button>
+        <button onClick={gotoNextMonth}>{">"}</button>
       </MonthAndYearBox>
       <WeekBox className="body">
         {Object.keys(WEEK_DAYS).map((date, index) =>

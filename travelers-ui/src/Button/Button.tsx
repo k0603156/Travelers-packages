@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import Mix from "../_mix";
+import Mix from "../@mix";
 
-interface Theme {
-  /**버튼의 기본 스타일 */
+export interface BaseProps {
+  /**버튼 베이스 스타일 */
   condition: "primary" | "secondary" | "tertiary";
   size: "small" | "medium" | "large";
   width?: string | number;
   disabled?: boolean;
 }
 
-interface ButtonProps extends Theme {
+interface ButtonProps extends BaseProps {
   children: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
@@ -71,16 +71,16 @@ const size = {
 const CButton = styled.button<ButtonProps>`
   ${Mix.base_tyle};
   user-select: none;
-  width: ${(props: Theme) => props.width};
-  ${(props: Theme) => condition[props.condition]};
-  ${(props: Theme) => size[props.size]};
+  width: ${(props: BaseProps) => props.width};
+  ${(props: BaseProps) => condition[props.condition]};
+  ${(props: BaseProps) => size[props.size]};
 
   &:disabled {
     cursor: not-allowed;
   }
 `;
 /**
- * 기본적인 버튼 스타일👍
+ * 기본 버튼 스타일👍
  *
  * - 설명
  */
