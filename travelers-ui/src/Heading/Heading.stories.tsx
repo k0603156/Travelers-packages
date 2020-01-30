@@ -16,8 +16,13 @@ export default {
 
 export const heading = () => {
   const label = text("label", "Heading");
-  const size = select("size", ["h1", "h2", "h3", "h4", "h5", "h6"], "h3");
-  return <Heading size={size}>{label}</Heading>;
+  const type = select("type", ["h1", "h2", "h3", "h4", "h5", "h6"], "h1");
+  const size = select("size", ["h1", "h2", "h3", "h4", "h5", "h6"], "h1");
+  return (
+    <Heading type={type} size={size}>
+      {label}
+    </Heading>
+  );
 };
 
 heading.story = {
