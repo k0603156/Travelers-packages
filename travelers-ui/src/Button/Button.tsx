@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Mix from "../@mix";
+import { base_tyle, condition } from "../@mix";
 
 export interface BaseProps {
   /**버튼 베이스 스타일 */
@@ -12,38 +12,10 @@ export interface BaseProps {
 
 interface ButtonProps extends BaseProps {
   children: React.ReactNode;
+  type?: "button" | "submit";
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const condition = {
-  primary: `
-  background: #20c997;
-  color: white;
-  &:hover { background: #38d9a9; }
-  &:active { background: #12b886; }
-  &:disabled {
-    background: #aed9cc;
-  }
-  `,
-  secondary: `
-  background: #e9ecef;
-  color: #343a40;
-  &:hover { background: #f1f3f5; }
-  &:active { background: #dee2e6; }
-  &:disabled {
-    color: #c6d3e1;
-  }
-  `,
-  tertiary: `
-  background: none;
-  color: #20c997;
-  &:hover { background: #e6fcf5; }
-  &:active { background: #c3fae8; }
-  &:disabled {
-    color: #bcd9d0;
-  }
-  `
-};
 const size = {
   small: `
   height: 1.75rem;
@@ -69,12 +41,12 @@ const size = {
 };
 
 const CButton = styled.button<ButtonProps>`
-  ${Mix.base_tyle};
+  ${base_tyle};
   user-select: none;
   width: ${(props: BaseProps) => props.width};
   ${(props: BaseProps) => condition[props.condition]};
   ${(props: BaseProps) => size[props.size]};
-
+  margin: 5px 0;
   &:disabled {
     cursor: not-allowed;
   }
@@ -90,7 +62,8 @@ const Button = ({
   condition,
   size,
   width,
-  disabled
+  disabled,
+  type
 }: ButtonProps) => {
   return (
     <CButton
@@ -99,6 +72,7 @@ const Button = ({
       size={size}
       width={width}
       disabled={disabled}
+      type={type}
     >
       {children}
     </CButton>
@@ -107,7 +81,8 @@ const Button = ({
 
 Button.defaultProps = {
   condition: "primary",
-  size: "medium"
+  size: "medium",
+  type: "button"
 };
 
 export default Button;

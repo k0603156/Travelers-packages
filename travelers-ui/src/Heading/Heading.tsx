@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Mix from "../@mix";
+import { base_tyle } from "../@mix";
 
 interface BaseProps {
   /**Heading 베이스 스타일 */
@@ -18,48 +18,42 @@ const size = {
   height: 2.75rem;
   font-size: 2rem;
   line-height: 2.75rem;
-  padding: 0 1rem;
   font-weight: 600;
   `,
   h2: `
   height: 2.5rem;
   font-size: 1.75rem;
   line-height: 2.5;
-  padding: 0 0.875rem;
   font-weight: 700;
   `,
   h3: `
   height: 2.25rem;
   font-size: 1.5rem;
-  line-height: 2.25rem;
-  padding: 0 1.5rem;
   font-weight: 800;
   `,
   h4: `
   height: 2rem;
   font-size: 1.25rem;
   line-height: 2rem;
-  padding: 0 1.5rem;
   font-weight: 800;
   `,
   h5: `
   height: 1.75rem;
   font-size: 1rem;
   line-height: 1.75rem;
-  padding: 0 1.5rem;
   font-weight: 800;
   `,
   h6: `
   height: 1.5rem;
   font-size: 0.75rem;
   line-height: 1.5rem;
-  padding: 0 1.5rem;
   font-weight: 800;
   `
 };
 const createHeading = (props: BaseProps) => styled[props.type]`
-  ${Mix.base_tyle};
   width: ${props.width};
+  margin: 0;
+  ${base_tyle};
   ${size[props.size]};
   &:disabled {
     cursor: not-allowed;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Mix from "../@mix";
+import { base_tyle } from "../@mix";
 
 export interface BaseProps {
   /**옵션 베이스 스타일 */
@@ -12,7 +12,7 @@ interface OptionProps extends BaseProps {
 }
 
 const COption = styled.option<OptionProps>`
-  ${Mix.base_tyle};
+  ${base_tyle};
   user-select: none;
 
   &:disabled {

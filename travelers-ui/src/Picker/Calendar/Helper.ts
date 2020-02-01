@@ -1,59 +1,42 @@
-// (int) The current year
-export const THIS_YEAR = +new Date().getFullYear();
-
-// (int) The current month starting from 1 - 12
-// 1 => January, 12 => December
-export const THIS_MONTH = +new Date().getMonth() + 1;
-
-export type DAYS =
-  | "Sunday"
-  | "Monday"
-  | "Tuesday"
-  | "Wednesday"
-  | "Thursday"
-  | "Friday"
-  | "Saturday";
-// Week days names and shortnames
-export const WEEK_DAYS = {
-  Sunday: "Sun",
-  Monday: "Mon",
-  Tuesday: "Tue",
-  Wednesday: "Wed",
-  Thursday: "Thu",
-  Friday: "Fri",
-  Saturday: "Sat"
-};
-
-// Calendar months names and shortnames
-export const CALENDAR_MONTHS = {
-  January: "Jan",
-  February: "Feb",
-  March: "Mar",
-  April: "Apr",
-  May: "May",
-  June: "Jun",
-  July: "Jul",
-  August: "Aug",
-  September: "Sep",
-  October: "Oct",
-  November: "Nov",
-  December: "Dec"
-};
-
 // Weeks displayed on calendar
 export const CALENDAR_WEEKS = 6;
+export const THIS_YEAR = +new Date().getFullYear();
+export const THIS_MONTH = +new Date().getMonth() + 1;
+export const SHORT_WEEK: {
+  [key: string]: string;
+} = {
+  Sunday: "일",
+  Monday: "월",
+  Tuesday: "화",
+  Wednesday: "수",
+  Thursday: "목",
+  Friday: "금",
+  Saturday: "토"
+};
+export const SHORT_MONTH: {
+  [key: string]: string;
+} = {
+  January: "1월",
+  February: "2월",
+  March: "3월",
+  April: "4월",
+  May: "5월",
+  June: "6월",
+  July: "7월",
+  August: "8월",
+  September: "9월",
+  October: "10월",
+  November: "11월",
+  December: "12월"
+};
 
-// Pads a string value with leading zeroes(0) until length is reached
-// For example: zeroPad(5, 2) => "05"
 export const zeroPad = (value: number, length: number) => {
   return `${value}`.padStart(length, "0");
 };
 
-// (int) Number days in a month for a given year from 28 - 31
-export const getMonthDays = (month = THIS_MONTH, year = THIS_YEAR) => {
+export const getMonthDays = (month = THIS_MONTH, year = THIS_YEAR): number => {
   const months30 = [4, 6, 9, 11];
   const leapYear = year % 4 === 0;
-
   return month === 2
     ? leapYear
       ? 29
@@ -65,8 +48,11 @@ export const getMonthDays = (month = THIS_MONTH, year = THIS_YEAR) => {
 
 // (int) First day of the month for a given year from 1 - 7
 // 1 => Sunday, 7 => Saturday
-export const getMonthFirstDay = (month = THIS_MONTH, year = THIS_YEAR) => {
-  return +new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1;
+export const getMonthFirstDay = (
+  month = THIS_MONTH,
+  year = THIS_YEAR
+): number => {
+  return new Date(`${year}-${zeroPad(month, 2)}-01`).getDay() + 1;
 };
 // (bool) Checks if a value is a date - this is just a simple check
 export const isDate = (date: any) => {
@@ -76,35 +62,33 @@ export const isDate = (date: any) => {
   return isDate && isValidDate;
 };
 
-// (bool) Checks if two date values are of the same month and year
 export const isSameMonth = (date: Date, basedate = new Date()) => {
   if (!(isDate(date) && isDate(basedate))) return false;
 
-  const basedateMonth = +basedate.getMonth() + 1;
-  const basedateYear = basedate.getFullYear();
+  const basedateMonth: number = basedate.getMonth() + 1;
+  const basedateYear: number = basedate.getFullYear();
 
-  const dateMonth = +date.getMonth() + 1;
-  const dateYear = date.getFullYear();
+  const dateMonth: number = date.getMonth() + 1;
+  const dateYear: number = date.getFullYear();
 
-  return +basedateMonth === +dateMonth && +basedateYear === +dateYear;
+  return basedateMonth === dateMonth && basedateYear === dateYear;
 };
 
-// (bool) Checks if two date values are the same day
-export const isSameDay = (date: Date, basedate = new Date()) => {
+export const isSameDay = (date: Date, basedate: Date) => {
   if (!(isDate(date) && isDate(basedate))) return false;
 
-  const basedateDate = basedate.getDate();
-  const basedateMonth = +basedate.getMonth() + 1;
-  const basedateYear = basedate.getFullYear();
+  const basedateDate: number = basedate.getDate();
+  const basedateMonth: number = basedate.getMonth() + 1;
+  const basedateYear: number = basedate.getFullYear();
 
-  const dateDate = date.getDate();
-  const dateMonth = +date.getMonth() + 1;
-  const dateYear = date.getFullYear();
+  const dateDate: number = date.getDate();
+  const dateMonth: number = date.getMonth() + 1;
+  const dateYear: number = date.getFullYear();
 
   return (
-    +basedateDate === +dateDate &&
-    +basedateMonth === +dateMonth &&
-    +basedateYear === +dateYear
+    basedateDate === dateDate &&
+    basedateMonth === dateMonth &&
+    basedateYear === dateYear
   );
 };
 
