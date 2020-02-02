@@ -4,7 +4,7 @@ import calendar, { isSameDay, getDateISO } from "./Helper";
 
 interface BaseProps {
   state: { current: Date; month: number; year: number; today: Date };
-  gotoDate: (date: any) => (e: any) => void;
+  onClickDate: (date: any) => (e: any) => void;
 }
 interface DayProps {
   index: any;
@@ -30,25 +30,23 @@ const DayAttr = styled.div<DayProps>`
   }
 `;
 export default (props: BaseProps) => {
-  const { state, gotoDate } = props;
+  const { state, onClickDate } = props;
   const { current, month, year, today } = state;
 
   const getCalendarDates = () => {
-    const calendarMonth = month || +state.current.getMonth() + 1;
-    const calendarYear = year || state.current.getFullYear();
+    const calendarMonth = month || current.getMonth() + 1;
+    const calendarYear = year || current.getFullYear();
     return calendar(calendarMonth, calendarYear);
   };
 
-  const renderCalendarDate = (date: (string | number)[], index: number) => {
+  const renderCalendarDate = getCalendarDates().map((date, index) => {
     const _date = new Date(date.join("-"));
-    const isToday = isSameDay(_date, today);
-    const isCurrent = current && isSameDay(_date, current);
     const props = {
       index,
-      onClick: gotoDate(_date),
+      onClick: onClickDate(date.join("-")),
       title: _date.toDateString(),
-      isToday,
-      isCurrent
+      isToday: isSameDay(_date, today),
+      isCurrent: current && isSameDay(_date, current)
     };
 
     return (
@@ -56,13 +54,6 @@ export default (props: BaseProps) => {
         {_date.getDate()}
       </DayAttr>
     );
-  };
-
-  return (
-    <DayBox>
-      {getCalendarDates().map((date, index) => {
-        return renderCalendarDate(date, index);
-      })}
-    </DayBox>
-  );
+  });
+  return <DayBox>{renderCalendarDate}</DayBox>;
 };

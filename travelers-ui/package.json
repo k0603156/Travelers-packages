@@ -24,7 +24,9 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "date-fns": "^2.9.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@storybook/addon-actions": "^5.3.9",
@@ -32,14 +34,17 @@
     "@storybook/addon-info": "^5.3.9",
     "@storybook/addon-knobs": "^5.3.9",
     "@storybook/addon-links": "^5.3.9",
+    "@storybook/addon-viewport": "^5.3.9",
     "@storybook/addons": "^5.3.9",
     "@storybook/react": "^5.3.9",
     "@svgr/rollup": "^5.1.0",
     "@types/styled-components": "^4.4.2",
     "awesome-typescript-loader": "^5.2.1",
+    "axios": "^0.19.2",
     "babel-loader": "^8.0.6",
     "babel-preset-react-app": "^9.1.0",
     "react-docgen-typescript-loader": "^3.6.0",
+    "react-is": "^16.12.0",
     "rollup": "^1.29.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -47,9 +52,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-url": "^3.0.1",
     "styled-components": "^5.0.0",
-    "typescript": "^3.7.5",
-    "@storybook/addon-viewport": "^5.3.9",
-    "react-is": "^16.12.0"
+    "typescript": "^3.7.5"
   },
   "peerDependencies": {
     "react": "^16.12.0",

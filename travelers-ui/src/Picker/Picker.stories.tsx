@@ -15,9 +15,19 @@ export default {
 };
 
 export const datePicker = () => {
-  const [date, setDate] = useState("");
+  const [data, setData] = useState({ date: "" });
   const width = text("width", "");
-  return <Picker value={date} setValue={setDate} type="date" width={width} />;
+  const onChangeValue = ({ date, time }: { date: string; time: string }) => {
+    setData({ ...data, date });
+  };
+  return (
+    <Picker
+      value={data}
+      onChangeValue={onChangeValue}
+      type="date"
+      width={width}
+    />
+  );
 };
 
 datePicker.story = {
@@ -25,9 +35,19 @@ datePicker.story = {
 };
 
 export const timePicker = () => {
-  const [date, setDate] = useState<Date>(new Date());
+  const [data, setData] = useState({ time: "00:00" });
   const width = text("width", "");
-  return <Picker value={date} setValue={setDate} type="time" width={width} />;
+  const onChangeValue = ({ date, time }: { date: string; time: string }) => {
+    setData({ ...data, time });
+  };
+  return (
+    <Picker
+      value={data.time}
+      onChangeValue={onChangeValue}
+      type="time"
+      width={width}
+    />
+  );
 };
 
 timePicker.story = {
@@ -35,10 +55,19 @@ timePicker.story = {
 };
 
 export const dateTimePicker = () => {
-  const [date, setDate] = useState<Date>(new Date());
+  const [data, setData] = useState({ date: "", time: "00:00" });
   const width = text("width", "");
+  const onChangeValue = ({ date, time }: { date: string; time: string }) => {
+    date && setData({ ...data, date });
+    time && setData({ ...data, time });
+  };
   return (
-    <Picker value={date} setValue={setDate} type="dateTime" width={width} />
+    <Picker
+      value={`${data.date} - ${data.time}`}
+      onChangeValue={onChangeValue}
+      type="dateTime"
+      width={width}
+    />
   );
 };
 
