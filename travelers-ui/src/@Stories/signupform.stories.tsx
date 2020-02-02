@@ -5,7 +5,6 @@ import { Button } from "antd/es";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import Axios from "axios";
-import "antd/dist/antd.css";
 
 export default {
   title: "stories/인증/회원가입폼",
