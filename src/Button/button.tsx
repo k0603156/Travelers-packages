@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import Button, { ButtonProps } from "antd/es/button";
+import { ButtonProps } from "antd/es/button";
+import { Button } from "antd";
 
 const button = styled(Button)<ButtonProps>``;
 

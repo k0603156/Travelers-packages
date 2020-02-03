@@ -1,4 +1,5 @@
-import Button from "antd/es/button";
+/// <reference types="react" />
+import { Button } from "antd";
 declare const button: import("styled-components").StyledComponent<typeof Button, any, Partial<{
     href: string;
     target?: string | undefined;

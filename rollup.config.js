@@ -24,7 +24,15 @@ export default {
     babel({
       extensions,
       include: ["src/**/*"],
-      runtimeHelpers: true
+      runtimeHelpers: true,
+      babelrc: false,
+      presets: [["react-app", { flow: false, typescript: true }]],
+      plugins: [
+        [
+          require.resolve("babel-plugin-import"),
+          { libraryName: "antd", libraryDirectory: "es", style: "css" }
+        ]
+      ]
     }),
     url(),
     svgr()
