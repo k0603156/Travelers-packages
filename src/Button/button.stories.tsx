@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./button";
+import Button from "./index";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 
 export default {
@@ -17,5 +17,5 @@ export const button = () => {
 };
 
 button.story = {
-  name: "Default"
+  name: "Button.default"
 };

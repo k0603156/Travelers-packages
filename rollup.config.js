@@ -5,6 +5,7 @@ import pkg from "./package.json";
 import svgr from "@svgr/rollup";
 import url from "rollup-plugin-url";
 import json from "@rollup/plugin-json";
+import alias from "@rollup/plugin-alias";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];

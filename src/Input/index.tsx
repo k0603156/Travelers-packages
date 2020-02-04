@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { InputProps } from "antd/es/input";
 import { Input } from "antd";
 
-const input = styled(Input)<InputProps>``;
+interface inputProps extends InputProps {}
+const input = styled(Input)<inputProps>``;
 
 export default input;

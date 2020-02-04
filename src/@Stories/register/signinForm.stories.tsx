@@ -1,13 +1,13 @@
 /** @tsx tsx */
 import React, { useState } from "react";
-import Input from "../Input/input";
+import Input from "../../Input";
 import { Button } from "antd/es";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import Axios from "axios";
 
 export default {
-  title: "stories/인증/로그인폼",
+  title: "stories/register/signinForm",
   parameters: {
     componentSubtitle: "로그인폼"
   }
@@ -65,5 +65,5 @@ export const signinForm = () => {
 };
 
 signinForm.story = {
-  name: "로그인폼"
+  name: "register.signinForm"
 };

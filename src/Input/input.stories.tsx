@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "./input";
+import Input from "./index";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 
 export default {
@@ -16,5 +16,5 @@ export const input = () => {
 };
 
 input.story = {
-  name: "Default"
+  name: "Input.default"
 };

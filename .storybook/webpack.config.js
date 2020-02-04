@@ -16,6 +16,10 @@ module.exports = ({ config, mode }) => {
                   }
                 }
               }
+            ],
+            [
+              require.resolve("babel-plugin-import"),
+              { libraryName: "antd", libraryDirectory: "es", style: "css" }
             ]
           ]
         }
