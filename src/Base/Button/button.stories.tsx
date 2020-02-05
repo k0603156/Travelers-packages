@@ -3,11 +3,11 @@ import Button from "./index";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 
 export default {
-  title: "components/Button",
+  title: "base/Button",
   component: Button,
   decorators: [withKnobs],
   parameters: {
-    componentSubtitle: "Button component"
+    componentSubtitle: "base/Button component"
   }
 };
 

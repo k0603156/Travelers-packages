@@ -3,11 +3,11 @@ import Input from "./index";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 
 export default {
-  title: "components/Input",
+  title: "base/Input",
   component: Input,
   decorators: [withKnobs],
   parameters: {
-    componentSubtitle: "Input component"
+    componentSubtitle: "base/Input component"
   }
 };
 

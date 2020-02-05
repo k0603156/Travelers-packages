@@ -3,11 +3,11 @@ import RangePicker from "./index";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 
 export default {
-  title: "components/DatePicker/rangePicker",
+  title: "base/DatePicker/rangePicker",
   component: RangePicker,
   decorators: [withKnobs],
   parameters: {
-    componentSubtitle: "DatePicker/RangePicker component"
+    componentSubtitle: "base/DatePicker/RangePicker component"
   }
 };
 

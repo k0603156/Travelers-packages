@@ -3,11 +3,11 @@ import Header from "./index";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 
 export default {
-  title: "components/Layout/Header",
+  title: "base/Layout/Header",
   component: Header,
   decorators: [withKnobs],
   parameters: {
-    componentSubtitle: "Layout Component"
+    componentSubtitle: "base/Layout Component"
   }
 };
 
