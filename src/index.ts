@@ -1,5 +1,5 @@
-export { default as Button } from "./Base/Button";
-export { default as Card } from "./Base/Card";
-export { default as DatePicker } from "./Base/DatePicker";
-export { default as Input } from "./Base/Input";
-export { default as Layout } from "./Base/Layout";
+export { default as Button } from "./Components/atoms/Button";
+export { default as Card } from "./Components/atoms/Card";
+export { default as DatePicker } from "./Components/atoms/DatePicker";
+export { default as Input } from "./Components/atoms/Input";
+export { default as Layout } from "./Components/atoms/Layout";

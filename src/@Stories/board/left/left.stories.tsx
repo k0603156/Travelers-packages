@@ -1,9 +1,9 @@
 /** @tsx tsx */
 import React from "react";
-import Layout, { Header, Content } from "../../../Base/Layout";
-import { RangePicker } from "../../../Base/DatePicker";
-import Button from "../../../Base/Button";
-import Input from "../../../Base/Input";
+import Layout, { Header, Content } from "../../../Components/atoms/Layout";
+import { RangePicker } from "../../../Components/atoms/DatePicker";
+import Button from "../../../Components/atoms/Button";
+import Input from "../../../Components/atoms/Input";
 import { Timeline, DatePicker, TimePicker, Icon, Col, Row, Avatar } from "antd";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";

@@ -1,7 +1,7 @@
 /** @tsx tsx */
 import React from "react";
 import { List } from "antd";
-import Card from "../../../Base/Card";
+import Card from "../../../Components/atoms/Card";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 export default {

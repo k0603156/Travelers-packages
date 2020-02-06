@@ -1,7 +1,7 @@
 /** @tsx tsx */
 import React, { useState } from "react";
-import Input from "../../Base/Input";
-import Layout from "../../Base/Layout";
+import Input from "../../Components/atoms/Input";
+import Layout from "../../Components/atoms/Layout";
 import { Button } from "antd/es";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";

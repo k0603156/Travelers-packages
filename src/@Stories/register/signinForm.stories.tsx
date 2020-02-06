@@ -1,6 +1,6 @@
 /** @tsx tsx */
 import React, { useState } from "react";
-import Input from "../../Base/Input";
+import Input from "../../Components/atoms/Input";
 import { Button } from "antd/es";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
