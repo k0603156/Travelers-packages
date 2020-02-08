@@ -2,9 +2,12 @@
 import React from "react";
 import Layout, { Header, Content, Sider } from "../../Components/atoms/Layout";
 import { RangePicker } from "../../Components/atoms/DatePicker";
+import { PlannerHeader } from "../../Components/organisms/Header";
 import Button from "../../Components/atoms/Button";
 import Input from "../../Components/atoms/Input";
 import Card from "../../Components/atoms/Card";
+import TabBox from "../../Components/molecules/TabBox";
+import { MessageList } from "../../Components/organisms/List";
 import {
   Timeline,
   DatePicker,
@@ -13,8 +16,7 @@ import {
   Col,
   Row,
   Avatar,
-  List,
-  Tabs
+  List
 } from "antd";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
@@ -44,8 +46,28 @@ const data = [
     description: "ㅂㅂㅂㅂㅂ"
   }
 ];
+
+const tabList = [
+  {
+    tabName: "tab1",
+    tabComponent: <MessageList data={data} />
+  },
+  {
+    tabName: "tab2",
+    tabComponent: <div>22</div>
+  }
+];
+
 export const Board = () => {
-  const { TabPane } = Tabs;
+  const titleValue = text("titleValue", "대만여행 3박 4일");
+  const isTitleEditable = boolean("isTitleEditable", true);
+  const startDate = text("startDate", "2019/01/01");
+  const endDate = text("endDate", "2019/01/03");
+  const members = [
+    text("member", ""),
+    text("member2", ""),
+    text("member3", "")
+  ].filter(member => member);
   return (
     <Row style={{ display: "flex", height: "100vh" }}>
       <Sider
@@ -57,40 +79,13 @@ export const Board = () => {
           boxShadow: "2px 2px 5px gray"
         }}
       >
-        <Header style={{ display: "flex" }}>
-          <Col span={6}>Travelers</Col>
-          <Col span={18}>
-            <Input value={"대만여행 3박 4일"} readOnly></Input>
-          </Col>
-        </Header>
-        <div>
-          <Row>
-            <Col span={12}>
-              <label>출발일</label>
-            </Col>
-            <Col span={12}>
-              <label>도착일</label>
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <RangePicker placeholder={["출발일", "도착일"]} block />
-            </Col>
-          </Row>
-          <Row>
-            <Button>
-              <Avatar size="small" icon="user" /> {"김용국"}
-            </Button>
-
-            <Button>
-              <Avatar size="small" icon="user" /> {"정진환"}
-            </Button>
-
-            <Button>
-              <Avatar size="small" icon="user" /> {"이지찬"}
-            </Button>
-          </Row>
-        </div>
+        <PlannerHeader
+          titleValue={titleValue}
+          isTitleEditable={isTitleEditable}
+          startDate={startDate}
+          endDate={endDate}
+          members={members}
+        />
         <Layout>
           <Timeline>
             <Timeline.Item color="black">
@@ -118,24 +113,7 @@ export const Board = () => {
         </Layout>
       </Sider>
       <Col span={8}>
-        <Tabs defaultActiveKey="1">
-          <TabPane tab="Chat" key="1">
-            <List
-              itemLayout="horizontal"
-              dataSource={data}
-              renderItem={item => (
-                <List.Item style={{ padding: "10px" }}>
-                  <List.Item.Meta
-                    avatar={<Avatar src="" icon="user" />}
-                    title={item.title}
-                    description={item.description}
-                  />
-                </List.Item>
-              )}
-            />
-          </TabPane>
-          <TabPane tab="MyBoard" key="2"></TabPane>
-        </Tabs>
+        <TabBox tabList={tabList}></TabBox>
       </Col>
       <Col
         span={8}

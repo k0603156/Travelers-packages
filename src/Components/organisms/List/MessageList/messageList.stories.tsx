@@ -3,14 +3,14 @@ import React from "react";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 export default {
-  title: "Components/organisms/Planner/body",
+  title: "Components/organisms/List/messageList",
   parameters: {
-    componentSubtitle: "Components/organisms/Planner/body"
+    componentSubtitle: "Components/organisms/List/messageList"
   }
 };
-export const body = () => {
+export const messageList = () => {
   return <></>;
 };
-body.story = {
-  name: "planner.body.default"
+messageList.story = {
+  name: "messageList.default"
 };

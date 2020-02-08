@@ -2,15 +2,14 @@
 import React from "react";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
-import moment from "moment";
 import PlannerHeader from "./index";
 
 export default {
-  title: "Components/organisms/Planner/header",
+  title: "Components/organisms/Header/PlannerHeader",
   component: PlannerHeader,
   decorators: [withKnobs],
   parameters: {
-    componentSubtitle: "Components/organisms/Planner/header"
+    componentSubtitle: "Components/organisms/Header/PlannerHeader"
   }
 };
 export const header = () => {
