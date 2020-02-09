@@ -15,20 +15,19 @@ export default function header(props: {
   const startDate = moment(props.startDate, "YYYY/MM/DD");
   const endDate = moment(props.endDate, "YYYY/MM/DD");
   return (
-    <Header style={{ height: "auto" }}>
-      <Row>
-        <Col span={6}>
-          <a href="#">
-            <Logo />
-          </a>
-        </Col>
-        <Col span={18}>
-          <Input
-            value={props.titleValue}
-            readOnly={props.isTitleEditable}
-          ></Input>
-        </Col>
-      </Row>
+    <Header
+      style={{
+        position: "relative",
+        height: "auto",
+        padding: "5px 25px",
+        boxShadow: "2px 2px 5px gray",
+        zIndex: 20
+      }}
+    >
+      <div style={{ display: "flex", lineHeight: "32px" }}>
+        <div style={{ padding: "0 5px" }}>Travelers</div>
+        <Input value={props.titleValue} readOnly={props.isTitleEditable} />
+      </div>
       <Row style={{ lineHeight: "1rem", margin: "5px 0" }}>
         <Col span={12}>
           <label>출발일</label>
@@ -47,10 +46,11 @@ export default function header(props: {
           />
         </Col>
       </Row>
-      <Row style={{ margin: "5px 0" }}>
+      <Row style={{ margin: "5px 0", lineHeight: "normal" }}>
         {props.members.map(member => (
-          <Button>
-            <Avatar size="small" icon="user" /> {member}
+          <Button key={member}>
+            <Avatar style={{ marginRight: "5px" }} size="small" icon="user" />
+            {member}
           </Button>
         ))}
       </Row>

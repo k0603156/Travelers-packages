@@ -2,13 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 const LogoSVG = styled.svg`
-  height: 64px;
-  width: 180px;
+  height: 100%;
+  width: 100%;
 `;
 
-export default function logo() {
+export default function logo({
+  height,
+  width
+}: {
+  height: number;
+  width: number;
+}) {
   return (
-    <LogoSVG version="1.1">
+    <LogoSVG version="1.1" viewBox={"0 " + "0 " + height + " " + width}>
       <g>
         <path
           d="M147,55.9c-2.2,0.3-4.4,0.4-6.7,0.5c-2.2,0.1-4.5,0.1-6.7-0.2c-1.1-0.1-2.2-0.3-3.3-0.6c-0.5-0.1-1.1-0.4-1.6-0.6

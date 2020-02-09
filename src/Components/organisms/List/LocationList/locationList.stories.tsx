@@ -3,14 +3,14 @@ import React from "react";
 import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 export default {
-  title: "Components/organisms/List/searchList",
+  title: "Components/organisms/List/locationList",
   parameters: {
-    componentSubtitle: "Components/organisms/List/searchList"
+    componentSubtitle: "Components/organisms/List/locationList"
   }
 };
-export const searchList = () => {
+export const locationList = () => {
   return <></>;
 };
-searchList.story = {
-  name: "searchList.default"
+locationList.story = {
+  name: "locationList.default"
 };
